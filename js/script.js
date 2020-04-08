@@ -35,14 +35,17 @@ const onDataReceived = (response) => {
         if (a.popularity > b.popularity) {
           return -1;
         }
-        // a должно быть равным b
         return 0;
       });
     fismsSort.forEach((film, item) => {
         if (film.poster_path === null) return;
-        $(`<div class="block-${item}"></div>`).appendTo(poster);
+
+        // создаём лицевую сторону карточки
+        $(`<div class="block block-${item}"></div>`).appendTo(poster);
+
         const block = $(`.block-${item}`);
-        $(`<p class="title">${film.title}</p>`).appendTo(block);
+
+       $(`<p class="title">${film.title}</p>`).appendTo(block);
         const img = document.createElement('img');
         img.style.padding = '10px';
         const posterLink = imageHost + film.poster_path;
