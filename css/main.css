@@ -78,7 +78,7 @@ img:hover {
     /* width: 33%; */
 }
 .block:hover {
-    background-color: orange;
+    background-color: #eaeaea;
     
 }
 .block img {
@@ -100,4 +100,15 @@ img:hover {
     -o-border-radius: 80% 80%;
     background-color: #000;
     color: orange;
+}
+#topBtn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    color: orange;
+    background: #191919;
+    border: none;
+    font-size: 30px;
+    outline: 0;
+    display: none;
 }
