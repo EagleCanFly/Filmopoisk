@@ -41,11 +41,14 @@ const onDataReceived = (response) => {
         if (film.poster_path === null) return;
 
         // создаём лицевую сторону карточки
-        $(`<div class="block block-${item}"></div>`).appendTo(poster);
+        $(`<a href="https://www.kinopoisk.ru/index.php?kp_query=${film.title}" target="_blank"><div class="block block-${item}"></div></a>`).appendTo(poster);
 
         const block = $(`.block-${item}`);
 
        $(`<p class="title">${film.title}</p>`).appendTo(block);
+       $(`<p class="vote">${film.vote_average}</p>`).appendTo(block);
+      //  $(`<p class="overview">${film.overview}</p>`).appendTo(block);
+
         const img = document.createElement('img');
         img.style.padding = '10px';
         const posterLink = imageHost + film.poster_path;
@@ -59,6 +62,6 @@ const onDataReceived = (response) => {
 
 // API part
 const getMovie = () => {
-    let response = $.ajax(apiHost + searchMovies + `?api_key=${apiKey}&query=${inputMovie.value}`);
+    let response = $.ajax(apiHost + searchMovies + `?api_key=${apiKey}&query=${inputMovie.value}&language=ru-RU`);
     return response;
 }
