@@ -24,12 +24,27 @@
                 <button id="search-btn">Найти</button>
                 <input type="text" id="input-movie">
             </div>
+            <div class="sort col-4 m-auto">
+                <p class="sort__label">Сортировка</p>
+                <div class="sort__radio">
+                    <input type="radio" name="Sort" id="byPopularity">
+                    <label for="byPopularity">по популярности</label>
+                </div>
+                <div class="sort__radio">
+                    <input type="radio" name="Sort" id="byVotes">
+                    <label for="byVotes">по оценкам</label>
+                </div>
+            </div>
+
             <div class="posters col-12 d-flex flex-wrap justify-content-center align-items-center"></div>
         </div>
     </div>
-<button id="topBtn"><i class="fas fa-caret-square-up"></i></button>
+    <button id="topBtn"><i class="fas fa-caret-square-up"></i></button>
+
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+     <script src="/js/movieCard.js"></script>
     <script src="/js/script.js"></script>
 </body>
 

@@ -112,3 +112,11 @@ img:hover {
     outline: 0;
     display: none;
 }
+.sort {
+    color: orange;
+}
+.sort__label {
+    /* text-align: center; */
+    text-transform: uppercase;
+    font-weight: bold;
+}

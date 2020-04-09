@@ -11,57 +11,43 @@ const apiKey = 'd497820dd50143376ccc71f1b2148479';
 
 // Functions
 
-const clickHandler = () => {
+const responseHandler = () => {
   const response = getMovie();
   response.then(onDataReceived);
 
 };
 
-// inputMovie.onkeydown = clickHandler;
+function sort(card, response) {
+  const sort = document.getElementsByName('Sort');
+  for (let i = 0; i < sort.length; i++) {
+    if (sort[0].checked) {
+      return card.sortByPopularity(response);
+    } else if (sort[1].checked) {
+      return card.sortByVotes(response);
+    }
+  }
+}
 
+const onDataReceived = (response) => {
+  console.log(response);
+  poster.innerHTML = '';
+  const card = new MovieCard;
+  sortedMovies = sort(card, response);
+  card.renderPoster(sortedMovies);
+};
+
+// Click/Keydown handlers 
 $('#input-movie').keyup(function (event) {
   if (event.keyCode == 13) {
     poster.empty();
-    clickHandler();
+    responseHandler();
   }
 });
 
 searchBtn.addEventListener('click', () => {
   poster.empty();
-  clickHandler();
+  responseHandler();
 });
-
-
-const onDataReceived = (response) => {
-  console.log(response);
-  poster.innerHTML = '';
-  const fismsSort = response.results.sort(function (a, b) {
-    if (a.popularity < b.popularity) {
-      return 1;
-    }
-    if (a.popularity > b.popularity) {
-      return -1;
-    }
-    return 0;
-  });
-  fismsSort.forEach((film, item) => {
-    if (film.poster_path === null) return;
-
-    $(`<a href="https://www.kinopoisk.ru/index.php?kp_query=${film.title}" target="_blank"><div class="block block-${item}"></div></a>`).appendTo(poster);
-
-    const block = $(`.block-${item}`);
-
-    $(`<p class="title">${film.title}</p>`).appendTo(block);
-    $(`<p class="vote">${film.vote_average}</p>`).appendTo(block);
-
-    const img = document.createElement('img');
-    img.style.padding = '10px';
-    const posterLink = imageHost + film.poster_path;
-    img.src = posterLink
-    block.append(img);
-  });
-
-};
 
 // Scroll Top Button
 $(window).scroll(function () {
