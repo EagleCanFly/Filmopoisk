@@ -92,12 +92,12 @@ img:hover {
     text-transform: uppercase;
     font-weight: bold;
     border: 2px solid #000;
-    padding: 4px;
-    border-radius: 80% 80%;
-    -webkit-border-radius: 80% 80%;
-    -moz-border-radius: 80% 80%;
-    -ms-border-radius: 80% 80%;
-    -o-border-radius: 80% 80%;
+    padding: 5px;
+    border-radius: 10%;
+    -webkit-border-radius: 10%;
+    -moz-border-radius: 10%;
+    -ms-border-radius: 10%;
+    -o-border-radius: 10%;
     background-color: #000;
     color: orange;
 }
